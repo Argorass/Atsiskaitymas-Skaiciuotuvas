@@ -8,12 +8,11 @@ import {
 
 export function addEventListeners() {
   // Number buttons
-  const numbers = document.querySelectorAll(".button");
-  numbers.forEach((button) => {
+  document.querySelectorAll(".button").forEach((button) => {
     button.addEventListener("click", handleButtonClick);
   });
 
-  // Operator buttons
+  // Operator buttons (using querySelector for each operator)
   document
     .querySelector("#add")
     .addEventListener("click", () => setOperator("+"));
@@ -26,9 +25,11 @@ export function addEventListeners() {
   document
     .querySelector("#divide")
     .addEventListener("click", () => setOperator("/"));
-  document.getElementById("equal").addEventListener("click", calculateResult);
 
-  // Other buttons
+  // Equal button
+  document.querySelector("#equal").addEventListener("click", calculateResult);
+
+  // Other buttons (Clear and Backspace)
   document.querySelector("#clear").addEventListener("click", resetCalculator);
   document
     .querySelector("#backspace")
@@ -37,11 +38,15 @@ export function addEventListeners() {
 
 function handleButtonClick(event) {
   const value = event.target.textContent;
+  const display = document.querySelector("#display");
 
-  if (value >= "0" && value <= "9") {
-    appendToDisplay(value);
-  } else if (value === ".") {
-    if (!currentInput.includes(".")) {
+  // Access currentInput from the display input's value
+  let currentInput = display.value;
+
+  if ((value >= "0" && value <= "9") || value === ".") {
+    if (value === "." && !currentInput.includes(".")) {
+      appendToDisplay(value);
+    } else if (value !== ".") {
       appendToDisplay(value);
     }
   }
