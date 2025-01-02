@@ -18,7 +18,8 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   overflow: hidden;
-  width: 300px;
+  width: 310px;
+  margin-right: 5px;
 }
 
 .display {
@@ -27,7 +28,6 @@ body {
   text-align: right;
   padding: 10px;
 }
-
 .display input {
   width: 100%;
   font-size: 2em;
@@ -41,10 +41,9 @@ body {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
-  padding: 20px;
+  padding: 15px;
 }
-
-.button {
+.buttons .button {
   background-color: #f1f1f1;
   font-size: 1.5em;
   border: 1px solid #ddd;
@@ -52,11 +51,24 @@ body {
   cursor: pointer;
   transition: background-color 0.2s;
 }
-
-.button:hover {
+.buttons .button:hover {
   background-color: #ddd;
 }
-
-.button:active {
+.buttons .button:active {
   background-color: #bbb;
+}
+
+.ac {
+  grid-column: span 2;
+}
+
+#equal {
+  grid-column: span 2;
+}
+
+#dot,
+#backspace,
+#divide,
+#zero {
+  width: 100%;
 }/*# sourceMappingURL=styles.css.map */

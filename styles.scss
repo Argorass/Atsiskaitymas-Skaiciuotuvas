@@ -18,7 +18,8 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   overflow: hidden;
-  width: 300px;
+  width: 310px;
+  margin-right: 5px;
 }
 
 .display {
@@ -26,37 +27,49 @@ body {
   color: white;
   text-align: right;
   padding: 10px;
-}
 
-.display input {
-  width: 100%;
-  font-size: 2em;
-  border: none;
-  background-color: transparent;
-  color: white;
-  text-align: right;
+  input {
+    width: 100%;
+    font-size: 2em;
+    border: none;
+    background-color: transparent;
+    color: white;
+    text-align: right;
+  }
 }
 
 .buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
-  padding: 20px;
+  padding: 15px;
+
+  .button {
+    background-color: #f1f1f1;
+    font-size: 1.5em;
+    border: 1px solid #ddd;
+    padding: 20px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: #ddd;
+    }
+    &:active {
+      background-color: #bbb;
+    }
+  }
 }
 
-.button {
-  background-color: #f1f1f1;
-  font-size: 1.5em;
-  border: 1px solid #ddd;
-  padding: 20px;
-  cursor: pointer;
-  transition: background-color 0.2s;
+.ac {
+  grid-column: span 2;
 }
-
-.button:hover {
-  background-color: #ddd;
+#equal {
+  grid-column: span 2;
 }
-
-.button:active {
-  background-color: #bbb;
+#dot,
+#backspace,
+#divide,
+#zero {
+  width: 100%;
 }
