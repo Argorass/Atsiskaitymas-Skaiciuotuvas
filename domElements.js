@@ -15,23 +15,23 @@ export function addEventListeners() {
 
   // Operator buttons
   document
-    .getElementById("add")
+    .querySelector("#add")
     .addEventListener("click", () => setOperator("+"));
   document
-    .getElementById("subtract")
+    .querySelector("#subtract")
     .addEventListener("click", () => setOperator("-"));
   document
-    .getElementById("multiply")
+    .querySelector("#multiply")
     .addEventListener("click", () => setOperator("*"));
   document
-    .getElementById("divide")
+    .querySelector("#divide")
     .addEventListener("click", () => setOperator("/"));
   document.getElementById("equal").addEventListener("click", calculateResult);
 
   // Other buttons
-  document.getElementById("clear").addEventListener("click", resetCalculator);
+  document.querySelector("#clear").addEventListener("click", resetCalculator);
   document
-    .getElementById("backspace")
+    .querySelector("#backspace")
     .addEventListener("click", deleteFromDisplay);
 }
 
