@@ -1,4 +1,3 @@
-// Import the operate function from mathOper.js
 import { operate } from "./mathOper.js";
 
 let currentInput = "";
@@ -28,7 +27,7 @@ export function deleteFromDisplay() {
 }
 
 export function setOperator(op) {
-  if (previousInput === "") {
+  if (previousInput === "" && currentInput !== "") {
     previousInput = currentInput;
     currentInput = "";
   }
@@ -37,13 +36,18 @@ export function setOperator(op) {
 
 export function calculateResult() {
   if (previousInput !== "" && currentInput !== "") {
+    // Perform the calculation
     const result = operate(
       Number(previousInput),
       Number(currentInput),
       operator
     );
+
+    // Display the result and update previousInput
     updateDisplay(result);
+
+    // Set the result as previousInput for further operations
     previousInput = result;
-    currentInput = "";
+    currentInput = ""; // Clear current input for the next value
   }
 }
